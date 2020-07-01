@@ -275,7 +275,7 @@ router.get('/getClasses', function (request, response) {
 });
 //加载每一类对应
 router.get('/getCommodity', function (request, response) {
-  console.log(request.query.id);
+  // console.log(request.query.id);
   let id = request.query.id
   db.query(sqlMap.classify.findByclass, id, function (error, data) {
     if (error) response.json(error);

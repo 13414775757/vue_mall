@@ -11,12 +11,13 @@ const Login = () => import('../components/common/login/Login.vue');
 const NewsList = () => import('../components/content/news/NewsList.vue');
 const NewsInfo = () => import('../components/content/news/NewsInfo.vue');
 const Account = () => import('../components/content/mine/Account.vue');
+const GoodsByClass = () => import('../components/content/classify/GoodsByClass.vue');
 
 const routes = [
   {path: '/', redirect: '/home'},
   {path: '/home', component: HomeContainer},
   {path: '/classify', component: ClassifyContainer},
-  {path: '/classify/goodsByClass/:id', component: () => import('../components/content/classify/GoodsByClass.vue')},
+  {path: '/classify/goodsByClass/:id', component: GoodsByClass},
   {path: '/shop_car', component: ShopCarContainer},
   {path: '/user', component: UserContainer},
   {path: '/user/account', component: Account},

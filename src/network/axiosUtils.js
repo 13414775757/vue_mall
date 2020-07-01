@@ -3,7 +3,7 @@ import axios from 'axios';
 //最终方式
 export function request(config) {
   const instance = axios.create({
-    baseURL: 'localhost:8080',
+    baseURL: 'localhost:3000/api',
     timeout: 3000
   });
   // axios 拦截器

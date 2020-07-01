@@ -19,16 +19,15 @@
       <select class="style" name="style">
               onmousedown="if(this.options.length>3){this.size=5}" onblur="this.size=0" onchange="this.size=0">
         <option>
-          颜色：{{}}，尺寸：{{}}
         </option>
       </select>
-      <span class="mui-badge">已选择:{{}}、{{}}码</span>
+      <span class="mui-badge"></span>
     </div>
     <div class="addCar mui-bar mui-bar-footer">
       <span></span>
       <span></span>
       <div class="mui-pull-right">
-        <button @click="postToShopCar" class="mui-btn mui-btn-yellow" size="large">加入购物车</button>
+        <button class="mui-btn mui-btn-yellow" size="large">加入购物车</button>
         <button class="mui-btn mui-btn-yellow" size="large">立即购买</button>
       </div>
     </div>
@@ -37,6 +36,31 @@
 
 <script>
   export default {
+    name: 'goodsByclass',
+    data() {
+      return {
+        id: this.$route.params.id
+      }
+    },
+    created() {
+      this.loadInfoById()
+    },
+    methods: {
+      loadInfoById() {
+        let commId = this.id;
+        this.$http.get('http://localhost:3000/api/getInfoById', {
+          params: {
+            commId,
+          }
+        }).then(result => {
+          console.log(result);
+          
+        }).catch(error => {
+          console.log(error);
+          
+        });
+      }
+    }
 
   }
 </script>
